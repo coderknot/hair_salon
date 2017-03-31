@@ -46,7 +46,14 @@ public class Stylist {
   }
 
   public static Stylist find(int id) {
-    return null;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists WHERE id = :id;";
+      Stylist stylist = con.createQuery(sql)
+        .addColumnMapping("hire_date", "hireDate")
+        .addParameter("id", id)
+        .executeAndFetchFirst(Stylist.class);
+      return stylist;
+    }
   }
 
   public void save() {
