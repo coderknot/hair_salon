@@ -11,18 +11,28 @@ public class StylistTest {
   @Test
   public void Stylist_instantiatesCorrectly_true() {
     Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
     assertTrue(testStylist instanceof Stylist);
+  }
+
+  @Test
+  public void getId_getId_getsStylistId_true() {
+    Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
+    assertTrue(testStylist.getId() > 0);
   }
 
   @Test
   public void getName_getsStylistName_name() {
     Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
     assertEquals("Megan", testStylist.getName());
   }
 
   @Test
   public void getHireDate_getsStylistHireDate_hireDate() {
     Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
     String currentDate = LocalDate.now().toString();
     assertEquals(currentDate, testStylist.getHireDate());
   }
@@ -30,6 +40,7 @@ public class StylistTest {
   @Test
   public void equals_StylistObjectsAreTheSame_true() {
     Stylist testStylist1 = new Stylist("Megan");
+    testStylist1.save();
     Stylist testStylist2 = testStylist1;
     assertTrue(testStylist1.equals(testStylist2));
   }

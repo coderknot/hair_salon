@@ -13,6 +13,10 @@ public class Stylist {
     this.hireDate = LocalDate.now().toString();
   }
 
+  public int getId() {
+    return 0;
+  }
+
   public String getName() {
     return this.name;
   }
