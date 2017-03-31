@@ -30,7 +30,8 @@ public class Stylist {
       return false;
     } else {
       Stylist newStylist = (Stylist) otherStylist;
-      return this.getName().equals(newStylist.getName())
+      return this.getId() == newStylist.getId()
+        && this.getName().equals(newStylist.getName())
         && this.getHireDate().equals(newStylist.getHireDate());
     }
   }
