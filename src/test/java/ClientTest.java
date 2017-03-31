@@ -10,36 +10,50 @@ public class ClientTest {
   @Test
   public void Client_instantiatesCorrectly_true() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
     assertTrue(testClient instanceof Client);
+  }
+
+  @Test
+  public void getId_getsClientId_id() {
+    Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(testClient.getId(), savedClient.getId());
   }
 
   @Test
   public void getName_getsClientName_name() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
     assertEquals("Chris", testClient.getName());
   }
 
   @Test
   public void getPhone_getsClientPhone_phone() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
     assertEquals("(555) 555-5555", testClient.getPhone());
   }
 
   @Test
   public void getEmail_getsClientEmail_email() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
     assertEquals("test@gmail.com", testClient.getEmail());
   }
 
   @Test
   public void getStylistId_getsClientStylistID_true() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
     assertTrue(testClient.getStylistId() > 0);
   }
 
   @Test
   public void equals_ClientObjectAreTheSame_true() {
     Client testClient1 = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient1.save();
     Client testClient2 = testClient1;
     assertTrue(testClient1.equals(testClient2));
   }

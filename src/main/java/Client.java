@@ -16,6 +16,10 @@ public class Client {
     this.stylistId = stylistId;
   }
 
+  public int getId() {
+    return 0;
+  }
+
   public String getName() {
     return this.name;
   }
@@ -66,5 +70,5 @@ public class Client {
         .getKey();
     }
   }
-  
+
 }
