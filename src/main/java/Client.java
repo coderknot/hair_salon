@@ -37,7 +37,14 @@ public class Client {
   }
 
   public String getStylistName() {
-    return "";
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists WHERE id = :stylistId;";
+      Stylist stylist = con.createQuery(sql)
+        .addColumnMapping("hire_date", "hireDate")
+        .addParameter("stylistId", this.stylistId)
+        .executeAndFetchFirst(Stylist.class);
+      return stylist.getName();
+    }
   }
 
   public static List<Client> all() {
