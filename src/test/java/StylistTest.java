@@ -33,4 +33,12 @@ public class StylistTest {
     Stylist testStylist2 = testStylist1;
     assertTrue(testStylist1.equals(testStylist2));
   }
+
+  @Test
+  public void all_returnsAllSavedStylists_true() {
+    Stylist testStylist1 = new Stylist("Megan");
+    Stylist testStylist2 = new Stylist("Gloria");
+    assertTrue(Stylist.all().get(0).equals(testStylist1));
+    assertTrue(Stylist.all().get(1).equals(testStylist2));
+  }
 }

@@ -1,5 +1,6 @@
 import org.sql2o.*;
 import java.time.LocalDate;
+import java.util.List;
 
 public class Stylist {
 
@@ -28,6 +29,10 @@ public class Stylist {
       return this.getName().equals(newStylist.getName())
         && this.getHireDate().equals(newStylist.getHireDate());
     }
+  }
+
+  public static List<Stylist> all() {
+    return null;
   }
 
 }
