@@ -14,7 +14,7 @@ public class Stylist {
   }
 
   public String getName() {
-    return "";
+    return this.name;
   }
 
 }
