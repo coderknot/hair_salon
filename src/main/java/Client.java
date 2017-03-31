@@ -19,9 +19,9 @@ public class Client {
   }
 
   public String getPhone() {
-    return "";
+    return this.phone;
   }
-  
+
   public int getStylistId() {
     return this.stylist_id;
   }
