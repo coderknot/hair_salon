@@ -61,4 +61,13 @@ public class StylistTest {
     testStylist.save();
     assertTrue(Stylist.all().get(0).equals(testStylist));
   }
+
+  @Test
+  public void find_returnsStylistWithSameId_Stylist() {
+    Stylist testStylist1 = new Stylist("Megan");
+    testStylist1.save();
+    Stylist testStylist2 = new Stylist("Gloria");
+    testStylist2.save();
+    assertEquals(testStylist2, Stylist.find(testStylist2.getId()));
+  }
 }

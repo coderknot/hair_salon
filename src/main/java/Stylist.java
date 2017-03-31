@@ -45,6 +45,10 @@ public class Stylist {
     }
   }
 
+  public static Stylist find(int id) {
+    return null;
+  }
+
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO stylists (name, hire_date) VALUES (:name, CAST(:hireDate AS DATE));";
