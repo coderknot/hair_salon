@@ -1,4 +1,5 @@
 import org.sql2o.*;
+import java.util.List;
 
 public class Client {
 
@@ -40,5 +41,9 @@ public class Client {
         && this.getEmail().equals(newClient.getEmail())
         && this.getStylistId() == newClient.getStylistId();
     }
+  }
+
+  public static List<Client> all() {
+    return null;
   }
 }
