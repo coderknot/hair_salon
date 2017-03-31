@@ -58,6 +58,10 @@ public class Client {
     }
   }
 
+  public static Client find(int id) {
+    return null;
+  }
+
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO clients (name, phone, email, stylist_id) VALUES (:name, :phone, :email, :stylistId);";
