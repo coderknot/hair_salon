@@ -41,7 +41,8 @@ public class Client {
       return false;
     } else {
       Client newClient = (Client) otherClient;
-      return this.getName().equals(newClient.getName())
+      return this.getId() == newClient.getId()
+        && this.getName().equals(newClient.getName())
         && this.getPhone().equals(newClient.getPhone())
         && this.getEmail().equals(newClient.getEmail())
         && this.getStylistId() == newClient.getStylistId();
