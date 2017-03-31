@@ -32,7 +32,24 @@ public class Stylist {
   }
 
   public static List<Stylist> all() {
-    return null;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM stylists;";
+      return con.createQuery(sql)
+        .addColumnMapping("hire_date", "hireDate")
+        .executeAndFetch(Stylist.class);
+    }
+  }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO stylists (name, hire_date) VALUES (:name, CAST(:hireDate AS DATE));";
+      this.id = (int) con.createQuery(sql, true)
+        .addColumnMapping("hire_date", "hireDate")
+        .addParameter("name", this.getName())
+        .addParameter("hireDate", this.getHireDate())
+        .executeUpdate()
+        .getKey();
+    }
   }
 
 }

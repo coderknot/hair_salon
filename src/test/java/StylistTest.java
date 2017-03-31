@@ -37,8 +37,17 @@ public class StylistTest {
   @Test
   public void all_returnsAllSavedStylists_true() {
     Stylist testStylist1 = new Stylist("Megan");
+    testStylist1.save();
     Stylist testStylist2 = new Stylist("Gloria");
+    testStylist2.save();
     assertTrue(Stylist.all().get(0).equals(testStylist1));
     assertTrue(Stylist.all().get(1).equals(testStylist2));
+  }
+
+  @Test
+  public void save_returnsTrueIfStylistSaved_true() {
+    Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
+    assertTrue(Stylist.all().get(0).equals(testStylist));
   }
 }
