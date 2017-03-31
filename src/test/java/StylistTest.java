@@ -76,6 +76,7 @@ public class StylistTest {
     Stylist testStylist = new Stylist("Megan");
     testStylist.save();
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", testStylist.getId());
+    testClient.save();
     assertTrue(testStylist.getClients().contains(testClient));
   }
 }

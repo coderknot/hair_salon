@@ -46,9 +46,15 @@ public class Stylist {
   }
 
   public List<Client> getClients() {
-    return null;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients WHERE stylist_id = :id;";
+      return con.createQuery(sql)
+        .addColumnMapping("stylist_id", "stylistId")
+        .addParameter("id", id)
+        .executeAndFetch(Client.class);
+    }
   }
-  
+
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO stylists (name, hire_date) VALUES (:name, CAST(:hireDate AS DATE));";
