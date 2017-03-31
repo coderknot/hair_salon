@@ -11,7 +11,7 @@ public class Client {
   }
 
   public String getName() {
-    return "";
+    return this.name;
   }
 
 }
