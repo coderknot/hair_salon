@@ -9,19 +9,19 @@ public class ClientTest {
 
   @Test
   public void Client_instantiatesCorrectly_true() {
-    Client testClient = new Client("Chris", 1);
+    Client testClient = new Client("Chris", "(555) 555-555", "test@gmail.com", 1);
     assertTrue(testClient instanceof Client);
   }
 
   @Test
   public void getName_getsClientName_Chris() {
-    Client testClient = new Client("Chris", 1);
+    Client testClient = new Client("Chris", "(555) 555-555", "test@gmail.com", 1);
     assertEquals("Chris", testClient.getName());
   }
 
   @Test
   public void getStylistId_getsStylistIdOfClient_true() {
-    Client testClient = new Client("Chris", 1);
+    Client testClient = new Client("Chris", "(555) 555-555", "test@gmail.com", 1);
     assertTrue(testClient.getStylistId() > 0);
   }
 }
