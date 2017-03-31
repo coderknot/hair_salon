@@ -17,7 +17,7 @@ public class Stylist {
   }
 
   public String getHireDate() {
-    return "";
+    return this.hireDate;
   }
 
 }
