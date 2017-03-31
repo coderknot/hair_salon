@@ -2,8 +2,12 @@ import org.sql2o.*;
 
 public class Client {
 
-  public Client(String name, int stylist_id) {
+  private String name;
+  private int stylist_id;
 
+  public Client(String name, int stylist_id) {
+    this.name = name;
+    this.stylist_id = stylist_id;
   }
 
 }
