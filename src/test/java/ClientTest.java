@@ -15,11 +15,10 @@ public class ClientTest {
   }
 
   @Test
-  public void getId_getsClientId_id() {
+  public void getId_getsClientId_true() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
     testClient.save();
-    Client savedClient = Client.all().get(0);
-    assertEquals(testClient.getId(), savedClient.getId());
+    assertTrue(testClient.getId() > 0);
   }
 
   @Test
