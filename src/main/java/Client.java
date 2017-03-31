@@ -31,6 +31,14 @@ public class Client {
   }
 
   public boolean equals(Object otherClient) {
-    return false;
+    if(!(otherClient instanceof Client)) {
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return this.getName().equals(newClient.getName())
+        && this.getPhone().equals(newClient.getPhone())
+        && this.getEmail().equals(newClient.getEmail())
+        && this.getStylistId() == newClient.getStylistId();
+    }
   }
 }
