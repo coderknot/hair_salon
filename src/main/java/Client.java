@@ -15,6 +15,6 @@ public class Client {
   }
 
   public int getStylistId() {
-    return 0;
+    return this.stylist_id;
   }
 }
