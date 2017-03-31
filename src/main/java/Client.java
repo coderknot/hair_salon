@@ -22,6 +22,10 @@ public class Client {
     return this.phone;
   }
 
+  public String getEmail() {
+    return "";
+  }
+  
   public int getStylistId() {
     return this.stylist_id;
   }

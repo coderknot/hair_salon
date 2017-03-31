@@ -26,6 +26,12 @@ public class ClientTest {
   }
 
   @Test
+  public void getEmail_getsClientEmail_email() {
+    Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    assertEquals("test@gmail.com", testClient.getEmail());
+  }
+
+  @Test
   public void getStylistId_getsStylistIdOfClient_true() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
     assertTrue(testClient.getStylistId() > 0);
