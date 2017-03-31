@@ -26,4 +26,11 @@ public class StylistTest {
     String currentDate = LocalDate.now().toString();
     assertEquals(currentDate, testStylist.getHireDate());
   }
+
+  @Test
+  public void equals_StylistObjectsAreTheSame_true() {
+    Stylist testStylist1 = new Stylist("Megan");
+    Stylist testStylist2 = testStylist1;
+    assertTrue(testStylist1.equals(testStylist2));
+  }
 }

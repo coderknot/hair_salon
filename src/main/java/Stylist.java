@@ -20,4 +20,8 @@ public class Stylist {
     return this.hireDate;
   }
 
+  public boolean equals(Object otherStylist) {
+    return false;
+  }
+
 }
