@@ -14,7 +14,7 @@ public class ClientTest {
   }
 
   @Test
-  public void getName_getsClientName_Chris() {
+  public void getName_getsClientName_name() {
     Client testClient = new Client("Chris", "(555) 555-555", "test@gmail.com", 1);
     assertEquals("Chris", testClient.getName());
   }
@@ -24,4 +24,11 @@ public class ClientTest {
     Client testClient = new Client("Chris", "(555) 555-555", "test@gmail.com", 1);
     assertTrue(testClient.getStylistId() > 0);
   }
+
+  @Test
+  public void getPhone_getsClientPhone_phone() {
+    Client testClient = new Client("Chris", "(555) 555-555", "test@gmail.com", 1);
+    assertEquals("(555) 555-5555", testClient.getPhone());
+  }
+  
 }

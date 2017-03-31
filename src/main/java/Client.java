@@ -18,7 +18,12 @@ public class Client {
     return this.name;
   }
 
+  public String getPhone() {
+    return "";
+  }
+  
   public int getStylistId() {
     return this.stylist_id;
   }
+
 }
