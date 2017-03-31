@@ -70,4 +70,12 @@ public class StylistTest {
     testStylist2.save();
     assertEquals(testStylist2, Stylist.find(testStylist2.getId()));
   }
+
+  @Test
+  public void getClients_getsClientsOfStylist_Clients() {
+    Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
+    Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", testStylist.getId());
+    assertTrue(testStylist.getClients().contains(testClient));
+  }
 }

@@ -25,17 +25,6 @@ public class Stylist {
     return this.hireDate;
   }
 
-  public boolean equals(Object otherStylist) {
-    if(!(otherStylist instanceof Stylist)) {
-      return false;
-    } else {
-      Stylist newStylist = (Stylist) otherStylist;
-      return this.getId() == newStylist.getId()
-        && this.getName().equals(newStylist.getName())
-        && this.getHireDate().equals(newStylist.getHireDate());
-    }
-  }
-
   public static List<Stylist> all() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM stylists;";
@@ -56,6 +45,10 @@ public class Stylist {
     }
   }
 
+  public List<Client> getClients() {
+    return null;
+  }
+  
   public void save() {
     try(Connection con = DB.sql2o.open()) {
       String sql = "INSERT INTO stylists (name, hire_date) VALUES (:name, CAST(:hireDate AS DATE));";
@@ -65,6 +58,17 @@ public class Stylist {
         .addParameter("hireDate", this.getHireDate())
         .executeUpdate()
         .getKey();
+    }
+  }
+
+  public boolean equals(Object otherStylist) {
+    if(!(otherStylist instanceof Stylist)) {
+      return false;
+    } else {
+      Stylist newStylist = (Stylist) otherStylist;
+      return this.getId() == newStylist.getId()
+        && this.getName().equals(newStylist.getName())
+        && this.getHireDate().equals(newStylist.getHireDate());
     }
   }
 
