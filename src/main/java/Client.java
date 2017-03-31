@@ -30,4 +30,7 @@ public class Client {
     return this.stylist_id;
   }
 
+  public boolean equals(Object otherClient) {
+    return false;
+  }
 }

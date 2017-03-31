@@ -32,9 +32,16 @@ public class ClientTest {
   }
 
   @Test
-  public void getStylistId_getsStylistIdOfClient_true() {
+  public void getStylistId_getsClientStylistID_true() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
     assertTrue(testClient.getStylistId() > 0);
+  }
+
+  @Test
+  public void equals_ClientObjectAreTheSame_true() {
+    Client testClient1 = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    Client testClient2 = testClient1;
+    assertTrue(testClient1.equals(testClient2));
   }
 
 }
