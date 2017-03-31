@@ -19,4 +19,9 @@ public class ClientTest {
     assertEquals("Chris", testClient.getName());
   }
 
+  @Test
+  public void getStylistId_getsStylistIdOfClient_true() {
+    Client testClient = new Client("Chris", 1);
+    assertTrue(testClient.getStylistId() > 0);
+  }
 }
