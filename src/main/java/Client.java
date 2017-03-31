@@ -23,9 +23,9 @@ public class Client {
   }
 
   public String getEmail() {
-    return "";
+    return this.email;
   }
-  
+
   public int getStylistId() {
     return this.stylist_id;
   }
