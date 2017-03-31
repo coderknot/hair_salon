@@ -47,9 +47,18 @@ public class ClientTest {
   @Test
   public void all_returnsAllSavedClients_true() {
     Client testClient1 = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient1.save();
     Client testClient2 = new Client("Jason", "(555) 555-5556", "test2@gmail.com", 2);
+    testClient2.save();
     assertTrue(Client.all().get(0).equals(testClient1));
     assertTrue(Client.all().get(1).equals(testClient2));
+  }
+
+  @Test
+  public void save_returnsTrueIfClientSaved_true() {
+    Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
+    testClient.save();
+    assertTrue(Client.all().get(0).equals(testClient));
   }
 
 }

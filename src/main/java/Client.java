@@ -3,16 +3,17 @@ import java.util.List;
 
 public class Client {
 
+  private int id;
   private String name;
   private String phone;
   private String email;
-  private int stylist_id;
+  private int stylistId;
 
-  public Client(String name, String phone, String email, int stylist_id) {
+  public Client(String name, String phone, String email, int stylistId) {
     this.name = name;
     this.phone = phone;
     this.email = email;
-    this.stylist_id = stylist_id;
+    this.stylistId = stylistId;
   }
 
   public String getName() {
@@ -28,7 +29,7 @@ public class Client {
   }
 
   public int getStylistId() {
-    return this.stylist_id;
+    return this.stylistId;
   }
 
   public boolean equals(Object otherClient) {
@@ -44,6 +45,26 @@ public class Client {
   }
 
   public static List<Client> all() {
-    return null;
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM clients;";
+      return con.createQuery(sql)
+        .addColumnMapping("stylist_id", "stylistId")
+        .executeAndFetch(Client.class);
+    }
   }
+
+  public void save() {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "INSERT INTO clients (name, phone, email, stylist_id) VALUES (:name, :phone, :email, :stylistId);";
+      this.id = (int) con.createQuery(sql, true)
+        .addColumnMapping("stylist_id", "stylistId")
+        .addParameter("name", this.getName())
+        .addParameter("phone", this.getPhone())
+        .addParameter("email", this.getEmail())
+        .addParameter("stylistId", this.getStylistId())
+        .executeUpdate()
+        .getKey();
+    }
+  }
+  
 }
