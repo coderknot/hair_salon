@@ -1,7 +1,6 @@
 import org.sql2o.*;
 import java.time.LocalDate;
 
-
 public class Stylist {
 
   private int id;
@@ -15,6 +14,10 @@ public class Stylist {
 
   public String getName() {
     return this.name;
+  }
+
+  public String getHireDate() {
+    return "";
   }
 
 }
