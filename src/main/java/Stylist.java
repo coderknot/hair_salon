@@ -21,7 +21,13 @@ public class Stylist {
   }
 
   public boolean equals(Object otherStylist) {
-    return false;
+    if(!(otherStylist instanceof Stylist)) {
+      return false;
+    } else {
+      Stylist newStylist = (Stylist) otherStylist;
+      return this.getName().equals(newStylist.getName())
+        && this.getHireDate().equals(newStylist.getHireDate());
+    }
   }
 
 }
