@@ -36,17 +36,8 @@ public class Client {
     return this.stylistId;
   }
 
-  public boolean equals(Object otherClient) {
-    if(!(otherClient instanceof Client)) {
-      return false;
-    } else {
-      Client newClient = (Client) otherClient;
-      return this.getId() == newClient.getId()
-        && this.getName().equals(newClient.getName())
-        && this.getPhone().equals(newClient.getPhone())
-        && this.getEmail().equals(newClient.getEmail())
-        && this.getStylistId() == newClient.getStylistId();
-    }
+  public String getStylistName() {
+    return "";
   }
 
   public static List<Client> all() {
@@ -80,6 +71,19 @@ public class Client {
         .addParameter("stylistId", this.getStylistId())
         .executeUpdate()
         .getKey();
+    }
+  }
+
+  public boolean equals(Object otherClient) {
+    if(!(otherClient instanceof Client)) {
+      return false;
+    } else {
+      Client newClient = (Client) otherClient;
+      return this.getId() == newClient.getId()
+        && this.getName().equals(newClient.getName())
+        && this.getPhone().equals(newClient.getPhone())
+        && this.getEmail().equals(newClient.getEmail())
+        && this.getStylistId() == newClient.getStylistId();
     }
   }
 

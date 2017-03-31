@@ -50,6 +50,15 @@ public class ClientTest {
   }
 
   @Test
+  public void getStylistName_getsClientStylistName_stylistName() {
+    Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
+    Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", testStylist.getId());
+    testClient.save();
+    assertEquals(testStylist.getName(), testClient.getStylistName());
+  }
+
+  @Test
   public void equals_ClientObjectAreTheSame_true() {
     Client testClient1 = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
     testClient1.save();
