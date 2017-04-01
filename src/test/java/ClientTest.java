@@ -97,7 +97,9 @@ public class ClientTest {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
     testClient.save();
     testClient.updateName("Jason");
+    testClient.updatePhone("(555) 555-5556");
     assertEquals("Jason", Client.find(testClient.getId()).getName());
+    assertEquals("(555) 555-5556", Client.find(testClient.getId()).getPhone());
   }
 
 }

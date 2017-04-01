@@ -91,6 +91,10 @@ public class Client {
     }
   }
 
+  public void updatePhone(String phone) {
+
+  }
+
   public boolean equals(Object otherClient) {
     if(!(otherClient instanceof Client)) {
       return false;
