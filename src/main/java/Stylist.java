@@ -78,4 +78,8 @@ public class Stylist {
     }
   }
 
+  public void updateName(String name) {
+    
+  }
+
 }
