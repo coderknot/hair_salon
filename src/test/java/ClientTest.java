@@ -98,10 +98,12 @@ public class ClientTest {
     testClient.save();
     testClient.updateName("Jason");
     testClient.updatePhone("(555) 555-5556");
-    testClient.updateEmail("test@gmail.com");
+    testClient.updateEmail("test2@gmail.com");
+    testClient.updateStylistId(2);
     assertEquals("Jason", Client.find(testClient.getId()).getName());
     assertEquals("(555) 555-5556", Client.find(testClient.getId()).getPhone());
-    assertEquals("test@gmail.com", Client.find(testClient.getId()).getEmail());
+    assertEquals("test2@gmail.com", Client.find(testClient.getId()).getEmail());
+    assertEquals(2, Client.find(testClient.getId()).getStylistId());
   }
 
 }

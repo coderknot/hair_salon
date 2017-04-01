@@ -111,6 +111,10 @@ public class Client {
     }
   }
 
+  public void updateStylistId(int stylistId) {
+
+  }
+
   public boolean equals(Object otherClient) {
     if(!(otherClient instanceof Client)) {
       return false;
