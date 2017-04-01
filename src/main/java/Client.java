@@ -121,6 +121,10 @@ public class Client {
     }
   }
 
+  public void delete() {
+    
+  }
+
   public boolean equals(Object otherClient) {
     if(!(otherClient instanceof Client)) {
       return false;
