@@ -77,6 +77,10 @@ public class Stylist {
     }
   }
 
+  public void delete() {
+    
+  }
+
   public boolean equals(Object otherStylist) {
     if(!(otherStylist instanceof Stylist)) {
       return false;

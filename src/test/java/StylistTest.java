@@ -87,4 +87,13 @@ public class StylistTest {
     testStylist.updateName("Gloria");
     assertEquals("Gloria", Stylist.find(testStylist.getId()).getName());
   }
+
+  @Test
+  public void delete_deletesStylist_true() {
+    Stylist testStylist = new Stylist("Megan");
+    testStylist.save();
+    int testStylistId = testStylist.getId();
+    testStylist.delete();
+    assertEquals(null, Stylist.find(testStylistId));
+  }
 }
