@@ -67,6 +67,16 @@ public class Stylist {
     }
   }
 
+  public void updateName(String name) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "UPDATE stylists SET name = :name WHERE id = :id;";
+      con.createQuery(sql)
+        .addParameter("name", name)
+        .addParameter("id", id)
+        .executeUpdate();
+    }
+  }
+
   public boolean equals(Object otherStylist) {
     if(!(otherStylist instanceof Stylist)) {
       return false;
@@ -75,16 +85,6 @@ public class Stylist {
       return this.getId() == newStylist.getId()
         && this.getName().equals(newStylist.getName())
         && this.getHireDate().equals(newStylist.getHireDate());
-    }
-  }
-
-  public void updateName(String name) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "UPDATE stylists SET name = :name WHERE id = :id;";
-      con.createQuery(sql)
-        .addParameter("name", name)
-        .addParameter("id", id)
-        .executeUpdate();
     }
   }
 

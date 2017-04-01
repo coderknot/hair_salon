@@ -81,6 +81,10 @@ public class Client {
     }
   }
 
+  public void updateName(String name) {
+
+  }
+
   public boolean equals(Object otherClient) {
     if(!(otherClient instanceof Client)) {
       return false;
