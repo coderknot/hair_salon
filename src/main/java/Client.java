@@ -49,7 +49,7 @@ public class Client {
 
   public static List<Client> all() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM clients;";
+      String sql = "SELECT * FROM clients ORDER BY name;";
       return con.createQuery(sql)
         .addColumnMapping("stylist_id", "stylistId")
         .executeAndFetch(Client.class);
