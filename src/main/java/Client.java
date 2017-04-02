@@ -95,7 +95,7 @@ public class Client {
     }
 
     if(!(this.getStylistId() == stylistId)) {
-      return;
+      this.updateStylistId(stylistId);
     }
   }
 
