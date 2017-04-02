@@ -1,11 +1,19 @@
 <!-- client.vtl -->
-<h2>$client.getName()</h2>
-<p>Phone: $client.getPhone()</p>
-<p>Email: $client.getEmail()</p>
-<p>Stylist: $client.getStylistName()</p>
-<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()/update">Update</a></p>
-<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()/delete">Remove</a></p>
-
-<p><a href="/stylists/$client.getStylistId()">Return to $client.getStylistName()</a></p>
-<p><a href="/">Return to Stylists</a><p>
+<div class="page-header">
+  <h1>Administrateur de Salon <small>: salon management</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Client: $client.getName()</h2>
+  </div>
+  <div class="panel-body">
+    <p>Phone: $client.getPhone()</p>
+    <p>Email: $client.getEmail()</p>
+    <p>Stylist: $client.getStylistName()</p>
+    <p><a href="/stylists/$client.getStylistId()/clients/$client.getId()/update">Update</a></p>
+    <p><a href="/stylists/$client.getStylistId()/clients/$client.getId()/delete">Remove</a></p>
+    <p><a href="/stylists/$client.getStylistId()">Return to $client.getStylistName()</a></p>
+    <p><a href="/">Return to Stylists</a><p>
+  </div>
+</div>
 <!-- client.vtl -->

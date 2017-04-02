@@ -1,33 +1,40 @@
 <!-- client-update.vtl -->
-<h2>Client Update</h2>
-
-<form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post">
-  <div class="form-group">
-    <label for="client-stylist-update">Update Stylist: </label>
-    <select id="client-stylist-update" name="client-stylist-update" type="text">
-      #foreach($stylist in $stylists)
-        #if ($client.getStylistId() == $stylist.getId())
-          <option selected="selected" value="$stylist.getId()">$stylist.getName()</option>
-        #else
-          <option value="$stylist.getId()">$stylist.getName()</option>
-        #end
-      #end
-    </select>
+<div class="page-header">
+  <h1>Administrateur de Salon <small>: salon management</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Client Update</h2>
   </div>
-  <div class="form-group">
-    <label for="client-name-update">Name:</label>
-    <input id="client-name-update" name="client-name-update" type="text" class="form-control" value="$client.getName()">
+  <div class="panel-body">
+    <form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post">
+      <div class="form-group">
+        <label for="client-stylist-update">Update Stylist: </label>
+        <select id="client-stylist-update" name="client-stylist-update" type="text">
+          #foreach($stylist in $stylists)
+            #if ($client.getStylistId() == $stylist.getId())
+              <option selected="selected" value="$stylist.getId()">$stylist.getName()</option>
+            #else
+              <option value="$stylist.getId()">$stylist.getName()</option>
+            #end
+          #end
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="client-name-update">Name:</label>
+        <input id="client-name-update" name="client-name-update" type="text" class="form-control" value="$client.getName()">
+      </div>
+      <div class="form-group">
+        <label for="client-phone-update">Phone:</label>
+        <input id="client-phone-update" name="client-phone-update" type="text" class="form-control" value="$client.getPhone()">
+      </div>
+      <div class="form-group">
+        <label for="client-email-update">Email:</label>
+        <input id="client-email-update" name="client-email-update" type="text" class="form-control" value="$client.getEmail()">
+      </div>
+      <button type="submit" class="btn btn-info">Update Client</button>
+    </form>
+    <p><a href="/stylists/$client.getStylistId()/clients/$client.getId()">Return to $client.getName()</a><p>
   </div>
-  <div class="form-group">
-    <label for="client-phone-update">Phone:</label>
-    <input id="client-phone-update" name="client-phone-update" type="text" class="form-control" value="$client.getPhone()">
-  </div>
-  <div class="form-group">
-    <label for="client-email-update">Email:</label>
-    <input id="client-email-update" name="client-email-update" type="text" class="form-control" value="$client.getEmail()">
-  </div>
-  <button type="submit" class="btn btn-info">Update Client</button>
-</form>
-
-<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()">Return to $client.getName()</a><p>
+</div>
 <!-- client-update.vtl -->

@@ -1,9 +1,16 @@
 <!-- client-delete.vtl -->
-<h2>Client Delete</h2>
-
-<form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post">
-  <button type="submit" class="btn btn-danger" id="client-delete">Remove Client</button>
-</form>
-
-<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()">Return to $client.getName()</a><p>
+<div class="page-header">
+  <h1>Administrateur de Salon <small>: salon management</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Client Delete</h2>
+  </div>
+  <div class="panel-body">
+    <form action="/stylists/$client.getStylistId()/clients/$client.getId()/delete" method="post">
+      <button type="submit" class="btn btn-danger" id="client-delete">Remove Client</button>
+    </form>
+    <p><a href="/stylists/$client.getStylistId()/clients/$client.getId()">Return to $client.getName()</a><p>
+  </div>
+</div>
 <!-- client-delete.vtl -->

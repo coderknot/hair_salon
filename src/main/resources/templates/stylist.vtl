@@ -1,34 +1,40 @@
 <!-- stylist.vtl -->
-<h2>$stylist.getName()</h2>
-<p>Hire Date: $stylist.getHireDate()</p>
-<p><a href="/stylists/$stylist.getId()/update">Update</a></p>
-<p><a href="/stylists/$stylist.getId()/delete">Remove</a></p>
-
-<h3>Clients:</h3>
-<ul>
-  #foreach ($client in $clients)
-    <li>
-      <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a>
-    </li>
-  #end
-</ul>
-
-<h3>New Client</h3>
-<form action="/stylists/$stylist.getId()/clients/new" method="post">
-  <div class="form-group">
-    <label for="client-name">Name:</label>
-    <input id="client-name" name="client-name" type="text" class="form-control">
+<div class="page-header">
+  <h1>Administrateur de Salon <small>: salon management</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Stylist: $stylist.getName()</h2>
   </div>
-  <div class="form-group">
-    <label for="client-phone">Phone:</label>
-    <input id="client-phone" name="client-phone" type="text" class="form-control">
+  <div class="panel-body">
+    <p>Hire Date: $stylist.getHireDate()</p>
+    <p><a href="/stylists/$stylist.getId()/update">Update</a></p>
+    <p><a href="/stylists/$stylist.getId()/delete">Remove</a></p>
+    <h3>Clients:</h3>
+    <ul>
+      #foreach ($client in $clients)
+        <li>
+          <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a>
+        </li>
+      #end
+    </ul>
+    <h3>New Client</h3>
+    <form action="/stylists/$stylist.getId()/clients/new" method="post">
+      <div class="form-group">
+        <label for="client-name">Name:</label>
+        <input id="client-name" name="client-name" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="client-phone">Phone:</label>
+        <input id="client-phone" name="client-phone" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="client-email">Email:</label>
+        <input id="client-email" name="client-email" type="text" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-info">Add Client</button>
+    </form>
+    <p><a href="/">Return to Stylists</a><p>
   </div>
-  <div class="form-group">
-    <label for="client-email">Email:</label>
-    <input id="client-email" name="client-email" type="text" class="form-control">
-  </div>
-  <button type="submit" class="btn btn-info">Add Client</button>
-</form>
-
-<p><a href="/">Return to Stylists</a><p>
+</div>
 <!-- stylist.vtl -->

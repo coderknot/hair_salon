@@ -1,21 +1,28 @@
 <!--index.vtl-->
-<h2>Stylists</h2>
-
-<h3>List:</h3>
-<ul>
-  #foreach ($stylist in $stylists)
-    <li>
-      <a href="/stylists/$stylist.getId()">$stylist.getName()</a>
-    </li>
-  #end
-</ul>
-
-<h3>New Stylist</h3>
-<form action="/stylists/new" method="post">
-  <div class="form-group">
-    <label for="stylist-name">Name:</label>
-    <input id="stylist-name" name="stylist-name" type="text" class="form-control">
+<div class="page-header">
+  <h1>Administrateur de Salon <small>: salon management</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Stylists</h2>
   </div>
-  <button type="submit" class="btn btn-info">Add Stylist</button>
-</form>
+  <div class="panel-body">
+    <h3>List:</h3>
+    <ul>
+      #foreach ($stylist in $stylists)
+        <li>
+          <a href="/stylists/$stylist.getId()">$stylist.getName()</a>
+        </li>
+      #end
+    </ul>
+    <h3>New Stylist</h3>
+    <form action="/stylists/new" method="post">
+      <div class="form-group">
+        <label for="stylist-name">Name:</label>
+        <input id="stylist-name" name="stylist-name" type="text" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-info">Add Stylist</button>
+    </form>
+  </div>
+</div>
 <!--index.vtl-->

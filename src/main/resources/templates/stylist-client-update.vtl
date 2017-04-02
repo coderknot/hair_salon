@@ -1,26 +1,32 @@
 <!-- stylist-client-update -->
-<h2>Client Update</h2>
-<p>There are still clients attached to the stylist record of: $stylist.getName()!</p>
-
-#if($otherStylists.size() > 0)
-  <h3>Client: $client.getName()</h3>
-  <p>Each client's stylist must be updated before $stylist.getName() can be removed.</p>
-
-  <form action="/stylists/$stylist.getId()/clients/$client.getId()/update_stylist" method="post">
-    <div class="form-group">
-      <label for="stylist-delete-update">Update Stylist: </label>
-      <select id="stylist-delete-update" name="stylist-delete-update" type="text">
-        #foreach($otherStylist in $otherStylists)
-          <option value="$otherStylist.getId()">$otherStylist.getName()</option>
-        #end
-      </select>
-    </div>
-    <button type="submit" class="btn btn-info">Update Client</button>
-  </form>
-#else
-  <p>There are no other stylists to which clients can be assigned!</p>
-  <p>Please return to stylist page and removed each client manually.</p>
-#end
-
-<p><a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a></p>
+<div class="page-header">
+  <h1>Administrateur de Salon <small>: salon management</small></h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Client Update</h2>
+  </div>
+  <div class="panel-body">
+    <p>There are still clients attached to the stylist record of: $stylist.getName()!</p>
+    #if($otherStylists.size() > 0)
+      <h3>Client: $client.getName()</h3>
+      <p>Each client's stylist must be updated before $stylist.getName() can be removed.</p>
+      <form action="/stylists/$stylist.getId()/clients/$client.getId()/update_stylist" method="post">
+        <div class="form-group">
+          <label for="stylist-delete-update">Update Stylist: </label>
+          <select id="stylist-delete-update" name="stylist-delete-update" type="text">
+            #foreach($otherStylist in $otherStylists)
+              <option value="$otherStylist.getId()">$otherStylist.getName()</option>
+            #end
+          </select>
+        </div>
+        <button type="submit" class="btn btn-info">Update Client</button>
+      </form>
+    #else
+      <p>There are no other stylists to which clients can be assigned!</p>
+      <p>Please return to stylist page and removed each client manually.</p>
+    #end
+    <p><a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a></p>
+  </div>
+</div>
 <!-- stylist-client-update -->
