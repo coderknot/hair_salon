@@ -111,6 +111,18 @@ public class App {
       model.put("template", "templates/client-delete.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+    
+    post("/stylists/:stylist_id/clients/:client_id/delete", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+
+      Client client = Client.find(Integer.parseInt(request.params(":client_id")));
+      int stylistId = client.getStylistId();
+      client.delete();
+
+      String url = String.format("/stylists/" + stylistId);
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
   }
 }
