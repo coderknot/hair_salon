@@ -131,14 +131,22 @@ public class App {
     get("/stylists/:stylist_id/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+
       model.put("stylist", stylist);
-      model.put("template", "templates/stylist-delete.vtl");
+
+      if(stylist.getClients().size() > 0) {
+        model.put("client", stylist.getClients().get(0));
+        model.put("template", "templates/stylist-client-update.vtl");
+      } else {
+        model.put("template", "templates/stylist-delete.vtl");
+      }
+      
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
     post("/stylists/:stylist_id/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
-      
+
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
       stylist.delete();
 
