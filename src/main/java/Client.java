@@ -81,7 +81,7 @@ public class Client {
     }
   }
 
-  public void update(String name, String phone, String email) {
+  public void update(String name, String phone, String email, int stylistId) {
     if(!(this.getName().equals(name))) {
       this.updateName(name);
     }
@@ -92,6 +92,10 @@ public class Client {
 
     if(!(this.getEmail().equals(email))) {
       this.updateEmail(email);
+    }
+
+    if(!(this.getStylistId() == stylistId)) {
+      return;
     }
   }
 

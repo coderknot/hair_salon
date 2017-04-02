@@ -110,16 +110,18 @@ public class ClientTest {
   public void update_updatesClient_true() {
     Client testClient = new Client("Chris", "(555) 555-5555", "test@gmail.com", 1);
     testClient.save();
-    
+
     String newName = "Jason";
     String newPhone = "(555) 555-5556";
     String newEmail = "test2@gmail.com";
+    int newStylistId = 2;
 
-    testClient.update(newName, newPhone, newEmail);
+    testClient.update(newName, newPhone, newEmail, newStylistId);
 
     assertEquals(newName, Client.find(testClient.getId()).getName());
     assertEquals(newPhone, Client.find(testClient.getId()).getPhone());
     assertEquals(newEmail, Client.find(testClient.getId()).getEmail());
+    assertEquals(newStylistId, Client.find(testClient.getId()).getStylistId());
   }
 
   @Test
