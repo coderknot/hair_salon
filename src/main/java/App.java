@@ -1,5 +1,6 @@
 import java.util.Map;
 import java.util.HashMap;
+import java.util.List;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
@@ -61,7 +62,14 @@ public class App {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
       model.put("stylist", stylist);
-      model.put("template", "templates/stylist-delete.vtl");
+
+      if(stylist.getClients().size() > 0) {
+        model.put("clients", stylist.getClients());
+        model.put("template", "templates/stylist-client-update.vtl");
+      } else {
+        model.put("template", "templates/stylist-delete.vtl");
+      }
+
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
