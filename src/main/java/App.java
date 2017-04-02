@@ -135,12 +135,21 @@ public class App {
       model.put("stylist", stylist);
 
       if(stylist.getClients().size() > 0) {
+        List<Stylist> otherStylistsList = new ArrayList<Stylist>();
+
+        for(Stylist otherStylist : Stylist.all()) {
+          if(!(otherStylist.equals(stylist))) {
+            otherStylistsList.add(otherStylist);
+          }
+        }
+
         model.put("client", stylist.getClients().get(0));
+        model.put("otherStylists", otherStylistsList);
         model.put("template", "templates/stylist-client-update.vtl");
       } else {
         model.put("template", "templates/stylist-delete.vtl");
       }
-      
+
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -154,5 +163,19 @@ public class App {
       response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
+
+    post("/stylists/:stylist_id/clients/:client_id/update_stylist", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+
+      Client client = Client.find(Integer.parseInt(request.params(":client_id")));
+      int newStylistId = Integer.parseInt(request.queryParams("stylist-delete-update"));
+      client.updateStylistId(newStylistId);
+
+      String url = String.format("/stylists/" + stylist.getId() + "/delete");
+      response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
   }
 }
