@@ -2,6 +2,18 @@
 <h2>Client Update</h2>
 <form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post">
   <div class="form-group">
+    <label for="client-stylist-update">Update Stylist: </label>
+    <select id="client-stylist-update" name="client-stylist-update" type="text">
+      #foreach($stylist in $stylists)
+        #if ($client.getStylistId() == $stylist.getId())
+          <option selected="selected" value="$stylist.getId()">$stylist.getName()</option>
+        #else
+          <option value="$stylist.getId()">$stylist.getName()</option>
+        #end
+      #end
+    </select>
+  </div>
+  <div class="form-group">
     <label for="client-name-update">Name:</label>
     <input id="client-name-update" name="client-name-update" type="text" class="form-control" value="$client.getName()">
   </div>
