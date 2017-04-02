@@ -82,7 +82,17 @@ public class Client {
   }
 
   public void update(String name, String phone, String email) {
+    if(!(this.getName().equals(name))) {
+      this.updateName(name);
+    }
 
+    if(!(this.getPhone().equals(phone))) {
+      this.updatePhone(phone);
+    }
+
+    if(!(this.getEmail().equals(email))) {
+      this.updateEmail(email);
+    }
   }
 
   public void updateName(String name) {
