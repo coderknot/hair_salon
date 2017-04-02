@@ -1,3 +1,20 @@
 <!-- client-update.vtl -->
 <h2>Client Update</h2>
+<form action="/stylists/$stylist.getId()/clients/$client.getId()/update" method="post">
+  <div class="form-group">
+    <label for="client-name-update">Name:</label>
+    <input id="client-name-update" name="client-name-update" type="text" class="form-control" value="$client.getName()">
+  </div>
+  <div class="form-group">
+    <label for="client-phone-update">Phone:</label>
+    <input id="client-phone-update" name="client-phone-update" type="text" class="form-control" value="$client.getPhone()">
+  </div>
+  <div class="form-group">
+    <label for="client-email-update">Email:</label>
+    <input id="client-email-update" name="client-email-update" type="text" class="form-control" value="$client.getEmail()">
+  </div>
+  <button type="submit" class="btn btn-info">Update Client</button>
+</form>
+
+<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()">Return to $client.getName()</a><p>
 <!-- client-update.vtl -->
