@@ -2,5 +2,22 @@
 <h2>$stylist.getName()</h2>
 <p>Hire Date: $stylist.getHireDate()</p>
 
-<a href="/">Return to Stylists</a>
+<h3>New Client</h3>
+<form action="/stylists/$stylist.getId()/clients/new" method="post">
+  <div class="form-group">
+    <label for="client-name">Name:</label>
+    <input id="client-name" name="client-name" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="client-phone">Phone:</label>
+    <input id="client-phone" name="client-phone" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="client-email">Email:</label>
+    <input id="client-email" name="client-email" type="text" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-info">Add Client</button>
+</form>
+
+<p><a href="/">Return to Stylists</a><p>
 <!-- stylist.vtl -->
