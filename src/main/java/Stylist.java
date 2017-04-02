@@ -27,7 +27,7 @@ public class Stylist {
 
   public static List<Stylist> all() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM stylists;";
+      String sql = "SELECT * FROM stylists ORDER BY name;";
       return con.createQuery(sql)
         .addColumnMapping("hire_date", "hireDate")
         .executeAndFetch(Stylist.class);
@@ -47,7 +47,7 @@ public class Stylist {
 
   public List<Client> getClients() {
     try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM clients WHERE stylist_id = :id;";
+      String sql = "SELECT * FROM clients WHERE stylist_id = :id ORDER BY name;";
       return con.createQuery(sql)
         .addColumnMapping("stylist_id", "stylistId")
         .addParameter("id", id)
