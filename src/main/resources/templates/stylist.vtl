@@ -2,6 +2,15 @@
 <h2>$stylist.getName()</h2>
 <p>Hire Date: $stylist.getHireDate()</p>
 
+<h3>Clients:</h3>
+<ul>
+  #foreach ($client in $clients)
+    <li>
+      <a href="/stylists/$stylist.getId()/clients/$client.getId()">$client.getName()</a>
+    </li>
+  #end
+</ul>
+
 <h3>New Client</h3>
 <form action="/stylists/$stylist.getId()/clients/new" method="post">
   <div class="form-group">
