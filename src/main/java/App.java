@@ -43,15 +43,21 @@ public class App {
       String name = request.queryParams("client-name");
       String phone = request.queryParams("client-phone");
       String email = request.queryParams("client-email");
-
-      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
-      int stylistId = stylist.getId();
+      int stylistId = Stylist.find(Integer.parseInt(request.params(":stylist_id"))).getId();;
 
       Client newClient = new Client(name, phone, email, stylistId);
       newClient.save();
 
       String url = String.format("/stylists/" + stylistId);
       response.redirect(url);
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylists/:stylist_id/clients/:client_id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Client client = Client.find(Integer.parseInt(request.params(":client_id")));
+      model.put("client", client);
+      model.put("template", "templates/client.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
