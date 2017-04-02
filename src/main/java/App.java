@@ -128,71 +128,23 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // wtf?
-    //.java:131: error: no suitable method found for get(String,(request,r[...]l); },VelocityTemplateEngine)
     get("/stylists/:stylist_id/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
-      String url = "/stylists/" + stylist.getId();
-
-      if(stylist.getClients().size() > 0) {
-        url += "/clients/" + stylist.getClients().get(0).getId() + "/update_stylist";
-      } else {
-        url += "/delete/delete_stylist";
-      }
-
-      response.redirect(url);
-    }, new VelocityTemplateEngine());
-
-    get("/stylists/:stylist_id/delete/delete_stylist", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
-
       model.put("stylist", stylist);
       model.put("template", "templates/stylist-delete.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    get("/stylists/:stylist_id/clients/:client_id/update_stylist", (request, response) -> {
+    post("/stylists/:stylist_id/delete", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
-      Client client = Client.find(Integer.parseInt(request.params(":client_id")));
+      stylist.delete();
 
-      List<Stylist> otherStylistsList = new ArrayList<Stylist>();
-
-      for(Stylist otherStylist : Stylist.all()) {
-        if(!(otherStylist.equals(stylist))) {
-          otherStylistsList.add(otherStylist);
-        }
-      }
-
-      model.put("stylist", stylist);
-      model.put("client", client);
-      model.put("otherStylists", otherStylistsList);
-      model.put("template", "templates/stylist-client-update.vtl");
+      String url = String.format("/");
+      response.redirect(url);
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
-    // get("/stylists/:stylist_id/clients/:client_id/update-stylist", (request, response) -> {
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //
-    //   Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
-    //   Client client = Client.find(Integer.parseInt(request.params(":client_id")));
-    //
-    //   List<Stylist> otherStylistsList = new ArrayList<Stylist>();
-    //
-    //   for(Stylist otherStylist : Stylist.all()) {
-    //     if(!(otherStylist.equals(stylist))) {
-    //       otherStylistsList.add(otherStylist);
-    //     }
-    //   }
-    //
-    //   model.put("stylist", stylist);
-    //   model.put("client", client);
-    //   model.put("otherStylists", otherStylistsList);
-    //   model.put("template", "templates/stylist-client-update.vtl");
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-
   }
 }
