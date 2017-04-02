@@ -1,3 +1,12 @@
 <!-- stylist-update.vtl -->
+<h2>Stylist Update</h2>
+<form action="/stylists/$stylist.getId()/update" method="post">
+  <div class="form-group">
+    <label for="stylist-name">Name:</label>
+    <input id="stylist-name" name="stylist-name" type="text" class="form-control" value="$stylist.getName()">
+  </div>
+  <button type="submit" class="btn btn-info">Update</button>
+</form>
 
+<p><a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a></p>
 <!-- stylist-update.vtl -->
