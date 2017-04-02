@@ -1,5 +1,8 @@
 <!-- stylist-delete.vtl -->
 <h2>Stylist Delete</h2>
+<p>There are no client records attached to stylist: $stylist.getName().</p>
+<p>$stylist.getName() may be removed.</p>
+
 <form action="/stylists/$stylist.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="stylist-delete">Remove Stylist</button>
 </form>
