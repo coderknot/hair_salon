@@ -1,6 +1,15 @@
 <!--index.vtl-->
 <h2>Stylists</h2>
 
+<h3>List:</h3>
+<ul>
+  #foreach ($stylist in $stylists)
+    <li>
+      <a href="/stylists/$stylist.getId()">$stylist.getName()</a>
+    </li>
+  #end
+</ul>
+
 <h3>New Stylist</h3>
 <form action="/stylists" method="post">
   <div class="form-group">
