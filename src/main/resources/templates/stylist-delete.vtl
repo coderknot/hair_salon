@@ -1,3 +1,8 @@
 <!-- stylist-delete.vtl -->
 <h2>Stylist Delete</h2>
+<form action="/stylists/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="stylist-delete">Remove Stylist</button>
+</form>
+
+<p><a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a></p>
 <!-- stylist-delete.vtl -->
