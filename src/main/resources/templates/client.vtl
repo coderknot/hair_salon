@@ -3,8 +3,8 @@
 <p>Phone: $client.getPhone()</p>
 <p>Email: $client.getEmail()</p>
 <p>Stylist: $client.getStylistName()</p>
-<p><a href="/stylists/$stylist.getId()/clients/$client.getId()/update">Update</a></p>
-<p><a href="/stylists/$stylist.getId()/clients/$client.getId()/delete">Remove</a></p>
+<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()/update">Update</a></p>
+<p><a href="/stylists/$client.getStylistId()/clients/$client.getId()/delete">Remove</a></p>
 
 <p><a href="/stylists/$client.getStylistId()">Return to $client.getStylistName()</a></p>
 <p><a href="/">Return to Stylists</a><p>
