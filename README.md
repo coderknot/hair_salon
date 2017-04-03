@@ -5,7 +5,7 @@
 #### By _**John Carr**_
 
 ## Description
-This salon management software allows an adminstrator to add stylists and clients into the system. Clients can be added to a stylist or reassigned to another stylist. Stylist and client details may be updated. Both stylists and clients can be removed from the system.
+This salon management software allows an adminstrator to add stylists and clients into the system. Clients can be added to a stylist or reassigned to another stylist. Stylist and client details may be updated. Both stylists and clients can be removed from the system. Clients must be reassigned to another stylist before an individual stylist can be removed.
 
 ## Setup/Installation Requirements
 * Clone portfolio respository from: <http://github.com/coderknot/hair-salon>
