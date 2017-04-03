@@ -1,21 +1,24 @@
 <!-- stylist-update.vtl -->
-<div class="page-header">
-  <h1>Administrateur de Salon <small>: salon management</small></h1>
-</div>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h2 class="panel-title">Stylist: Update</h2>
-  </div>
-  <div class="panel-body">
-  <form action="/stylists/$stylist.getId()/update" method="post">
-    <div class="form-group">
-      <label for="stylist-name-update">Name:</label>
-      <input id="stylist-name-update" name="stylist-name-update" type="text" class="form-control" value="$stylist.getName()">
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Stylist: Update</h2>
+      </div>
+      <div class="panel-body">
+        <form action="/stylists/$stylist.getId()/update" method="post">
+          <div class="form-group">
+            <label for="stylist-name-update">Name:</label>
+            <input id="stylist-name-update" name="stylist-name-update" type="text" class="form-control" value="$stylist.getName()">
+          </div>
+          <button type="submit" class="btn btn-info">Update</button>
+        </form>
+        <p><a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a></p>
+      </div>
     </div>
-    <button type="submit" class="btn btn-info">Update</button>
-  </form>
-  <p><a href="/stylists/$stylist.getId()">Return to $stylist.getName()</a></p>
-  <!-- stylist-update.vtl -->
+  </div>
+  <div class="col-md-4">
+    <h3>Stylist Info Here?</h3>
   </div>
 </div>
 <!-- stylist-update.vtl -->
