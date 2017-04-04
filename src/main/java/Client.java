@@ -82,15 +82,15 @@ public class Client {
   }
 
   public void update(String name, String phone, String email, int stylistId) {
-    if(!(this.getName().equals(name))) {
+    if(!(this.getName().equals(name) || name.isEmpty() || name == null)) {
       this.updateName(name);
     }
 
-    if(!(this.getPhone().equals(phone))) {
+    if(!(this.getPhone().equals(phone) || phone.isEmpty() || phone == null)) {
       this.updatePhone(phone);
     }
 
-    if(!(this.getEmail().equals(email))) {
+    if(!(this.getEmail().equals(email) || email.isEmpty() || email == null)) {
       this.updateEmail(email);
     }
 
